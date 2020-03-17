@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
@@ -56,7 +56,21 @@ namespace Cw2
             );
             xml.Save(String.Concat(xmlpath+"result.xml"));
         }
-      
+      else {
+if (!File.Exists(csvpath))
+{
+ throw new Exception("file does not exist");
+}
+if(!Directory.Exists(xmlpath))
+{
+ throw new Exception("Directory does not exists");
+}
+}
+}
+catch (Exception ex)
+{
+ErrorLogging(ex);
+}
 
 
     }
